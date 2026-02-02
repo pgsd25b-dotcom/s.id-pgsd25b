@@ -35,11 +35,21 @@ header {
 .brand-area img {
   width: 80px; 
   height: 80px;
-  border-radius: 50%; /* Membuat logo otomatis bulat */
-  object-fit: cover; /* Memastikan gambar tidak gepeng */
+  border-radius: 50%; /* */
+  object-fit: cover; /* */
   margin-bottom: 10px;
-  border: 3px solid rgba(255,255,255,0.3);
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+  border: 3px solid rgba(255,255,255,0.3); /* */
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2)); /* */
+  
+  /* TAMBAHKAN BARIS INI */
+  animation: logo-pulse 2s infinite ease-in-out;
+}
+
+/* TAMBAHKAN KODE BARU INI DI BAWAHNYA */
+@keyframes logo-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 .brand-area h1 {
   margin: 0;
@@ -477,19 +487,14 @@ footer {
 
     <hr style="border: 0; border-top: 1px dashed #ccc; margin: 30px 0;">
 
-    <div class="sub-judul-profil">Sambutan Ketua</div>
-    
     <div style="text-align: center; margin-bottom: 10px;">
-      <img src="kosma.jpg" class="foto-kosma" alt="Rijal Fauzi" style="display: block; margin: 0 auto 15px auto;">
-      <h3 style="margin:0; font-size: 1.3rem; color: #333;">Rijal Fauzi Nurwahid</h3>
-      <small style="color:var(--merah); font-weight:bold; text-transform: uppercase; letter-spacing: 1px;">Ketua Kelas (Kosma)</small>
+      <img src="kosma.jpg" class="foto-kosma" alt="Ketua">
+      <h3 id="load-nama-ketua" style="margin:0; font-size: 1.3rem; color: #333;">Memuat nama...</h3>
+      <small style="color:var(--merah); font-weight:bold; text-transform: uppercase;">Ketua Kelas (Kosma)</small>
     </div>
 
-    <div class="pesan-teks">
-      <p>Assalamu’alaikum warahmatullahi wabarakatuh, Salam sejahtera untuk kita semua. Puji syukur kita panjatkan ke hadirat Allah SWT atas segala rahmat dan karunia-Nya, sehingga website resmi Kelas PGSD 1B ini dapat dibuat dan dikembangkan sebagai media informasi, komunikasi, serta dokumentasi kegiatan kelas kami.</p>
-      <p>Website ini hadir sebagai wadah untuk menampilkan berbagai aktivitas akademik maupun non-akademik mahasiswa PGSD 1B, mulai dari informasi perkuliahan, kegiatan kelas, dokumentasi, hingga karya dan kreativitas mahasiswa. Kami berharap website ini dapat menjadi sarana yang bermanfaat, tidak hanya bagi seluruh mahasiswa PGSD 1B, tetapi juga bagi dosen, civitas akademika, serta pihak lain yang ingin mengenal kelas kami lebih dekat.</p>
-      <p>Sebagai Ketua Kelas (Kosma), saya mengucapkan terima kasih kepada seluruh teman-teman PGSD 1B yang telah berkontribusi, baik dalam pembuatan website ini maupun dalam menjaga kekompakan dan semangat kebersamaan selama perkuliahan. Semoga melalui website ini, komunikasi antar mahasiswa semakin baik dan rasa solidaritas terus terjaga.</p>
-      <p>Akhir kata, kami terbuka terhadap saran dan masukan demi pengembangan website dan kemajuan kelas PGSD 1B ke depannya. Semoga website ini dapat menjadi sarana yang bermanfaat dan inspiratif bagi kita semua. Wassalamu’alaikum warahmatullahi wabarakatuh..</p>
+    <div class="pesan-teks" id="load-isi-sambutan">
+      <p>Memuat sambutan...</p>
     </div>
 
     <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
@@ -533,13 +538,8 @@ footer {
           <th>Ruang</th>
         </tr>
       </thead>
-      <tbody>
-        <tr><td>Senin</td><td>Pendidikan Dasar</td><td>08:00 - 10:00</td><td>A.12</td></tr>
-        <tr><td></td><td>pkn Dasar</td><td>08:00 - 10:00</td><td>A.12</td></tr>
-        <tr><td>Selasa</td><td>Psikologi Pendidikan</td><td>10:30 - 12:00</td><td>B.05</td></tr>
-        <tr><td>Rabu</td><td>Bahasa Indonesia</td><td>13:00 - 15:00</td><td>Lab</td></tr>
-        <tr><td>Kamis</td><td>Konsep Dasar PKN</td><td>08:00 - 10:00</td><td>C.02</td></tr>
-        <tr><td>Jumat</td><td>Matematika Dasar</td><td>09:00 - 11:00</td><td>B.01</td></tr>
+     <tbody id="load-jadwal-cloud">
+        <tr><td colspan="4" style="text-align:center;">Memuat jadwal...</td></tr>
       </tbody>
     </table>
   </div>
@@ -548,18 +548,19 @@ footer {
 <section id="info">
   <h2>Pengumuman & Informasi</h2>
   <div class="card">
-    <div class="info-box">
+    <div class="info-box" id="box-info-utama">
       <i class="fas fa-bullhorn"></i>
       <div class="info-content">
         <h4>Informasi Perkuliahan Terkini</h4>
-        <p>Jangan lupa untuk mengecek kembali KRS semester Genap Kalian dan tetap menjaga koordinasi di grup WhatsApp kelas. Pastikan kehadiran minimal 75% untuk dapat mengikuti UAS.</p>
+        <p id="teks-info-admin">Memuat informasi...</p>
       </div>
     </div>
+
     <div class="info-box" style="margin-top: 15px; background: #e3f2fd; border-left-color: #2196f3;">
       <i class="fas fa-calendar-alt" style="color: #2196f3;"></i>
       <div class="info-content">
         <h4 style="color: #0d47a1;">Agenda Mendatang</h4>
-        <p style="color: #0d47a1;">Literasi Alam (Agenda Rutinan).</p>
+        <p id="teks-agenda-admin" style="color: #0d47a1;">Memuat agenda...</p>
       </div>
     </div>
   </div>
@@ -887,6 +888,105 @@ window.onclick = function(event) {
   if (event.target == popAnggota) closePopup();
   if (event.target == popArtikel) tutupArtikel();
 }
+</script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script src="script.js">// Ambil data pengumuman secara Real-time
+db.collection("settings").doc("pengumuman").onSnapshot((doc) => {
+    if (doc.exists) {
+        const data = doc.data();
+        if (data.teks) {
+            document.getElementById('info-bar').style.display = "block";
+            document.getElementById('running-text').innerText = data.teks;
+        } else {
+            document.getElementById('info-bar').style.display = "none";
+        }
+    }
+});</script>
+
+<script>
+    // 1. TAMPILKAN PENGUMUMAN & AGENDA
+    db.collection("settings").doc("pengumuman").onSnapshot((doc) => {
+        if (doc.exists) {
+            const data = doc.data();
+            const infoUtama = document.getElementById('teks-info-admin'); // Sesuaikan ID di HTML Anda
+            const infoAgenda = document.getElementById('teks-agenda-admin');
+            
+            if(infoUtama) infoUtama.innerText = data.info || "Tidak ada informasi terkini.";
+            if(infoAgenda) infoAgenda.innerText = data.agenda || "Belum ada agenda.";
+        }
+    });
+
+    // 2. TAMPILKAN SAMBUTAN KETUA
+    db.collection("settings").doc("sambutan").onSnapshot((doc) => {
+        if (doc.exists) {
+            const data = doc.data();
+            const namaKetua = document.getElementById('nama-ketua'); 
+            const teksSambutan = document.getElementById('teks-sambutan');
+            
+            if(namaKetua) namaKetua.innerText = data.nama || "Ketua Kelas";
+            if(teksSambutan) teksSambutan.innerText = data.teks || "Selamat datang di website kami.";
+        }
+    });
+
+    // 3. TAMPILKAN BERITA (DENGAN LOGIKA DETEKSI LINK/URL)
+    db.collection("artikel").orderBy("createdAt", "desc").onSnapshot((snapshot) => {
+        const containerBerita = document.getElementById("artikel-container");
+        if(!containerBerita) return;
+        containerBerita.innerHTML = "";
+        
+        snapshot.forEach((doc) => {
+            const data = doc.data();
+            // LOGIKA SMART: Jika input diawali 'http', pakai langsung. Jika tidak, ambil dari folder images/
+            const srcGambar = data.img.startsWith("http") ? data.img : "images/" + data.img;
+
+            containerBerita.innerHTML += `
+                <div class="card-berita">
+                    <img src="${srcGambar}" alt="${data.title}" style="width:100%; border-radius:10px; height:200px; object-fit:cover;">
+                    <h3>${data.title}</h3>
+                    <p>${data.content.substring(0, 100)}...</p>
+                </div>
+            `;
+        });
+    });
+
+    // 4. TAMPILKAN GALERI (DENGAN LOGIKA DETEKSI LINK/URL)
+    db.collection("galeri").orderBy("createdAt", "desc").onSnapshot((snapshot) => {
+        const containerGaleri = document.getElementById("galeri-container");
+        if(!containerGaleri) return;
+        containerGaleri.innerHTML = "";
+        
+        snapshot.forEach((doc) => {
+            const data = doc.data();
+            const srcGambar = data.img.startsWith("http") ? data.img : "images/" + data.img;
+
+            containerGaleri.innerHTML += `
+                <div class="galeri-item">
+                    <img src="${srcGambar}" alt="Galeri PGSD" style="width:100%; border-radius:8px;">
+                    <p style="font-size:0.8rem; text-align:center;">${data.caption}</p>
+                </div>
+            `;
+        });
+    });
+
+    // 5. TAMPILKAN JADWAL (HARI KETIK MANUAL)
+    db.collection("jadwal").orderBy("createdAt", "asc").onSnapshot((snapshot) => {
+        const tableJadwal = document.getElementById("tabel-jadwal-body"); // Sesuaikan ID tabel Anda
+        if(!tableJadwal) return;
+        tableJadwal.innerHTML = "";
+        
+        snapshot.forEach((doc) => {
+            const data = doc.data();
+            tableJadwal.innerHTML += `
+                <tr>
+                    <td><strong>${data.hari}</strong></td>
+                    <td>${data.matkul}</td>
+                    <td>${data.info}</td>
+                </tr>
+            `;
+        });
+    });
 </script>
 
 </body>
